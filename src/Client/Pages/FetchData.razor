@@ -39,7 +39,13 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        List<WeatherForecast> weather = new List<WeatherForecast>();
+        weather.Add(await Http.GetFromJsonAsync<WeatherForecast>("https://kb7ppbfuncapp.azurewebsites.net/api/GetWeather"));
+        weather.Add(await Http.GetFromJsonAsync<WeatherForecast>("https://kb7ppbfuncapp.azurewebsites.net/api/GetWeather"));
+        weather.Add(await Http.GetFromJsonAsync<WeatherForecast>("https://kb7ppbfuncapp.azurewebsites.net/api/GetWeather"));
+        weather.Add(await Http.GetFromJsonAsync<WeatherForecast>("https://kb7ppbfuncapp.azurewebsites.net/api/GetWeather"));
+        weather.Add(await Http.GetFromJsonAsync<WeatherForecast>("https://kb7ppbfuncapp.azurewebsites.net/api/GetWeather"));
+        //forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
     }
 
     public class WeatherForecast
